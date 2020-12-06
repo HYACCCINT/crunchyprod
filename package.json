@@ -8,7 +8,7 @@
     "start": "cd server && npm start",
     "test": "bash ./test.sh",
     "heroku-postbuild": "npm build",
-    "build": "npx tsc && cd client && npm run build && cd ../server && npm run build",
+    "build": "npx tsc && cd client && npm run build && cd server && npm run build",
     "iall": "npm i && cd client && npm i && cd .. && cd server && npm i",
     "dev": "concurrently --kill-others-on-fail \"cd server && npm start\" \"cd client && npm start\""
   },
@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/csc302-fall-2020/proj-crunchycoders#readme",
   "dependencies": {
+    "ts-node": "^9.0.0",
+    "typescript": "^3.7.5",
     "concurrently": "^5.3.0"
   }
 }
