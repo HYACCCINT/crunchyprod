@@ -1,0 +1,117 @@
+.App {
+  margin-top: 3rem;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.menu-button {
+  height: 20vh;
+  width: 85%;
+  border: 5px solid #25c9c9;
+  margin: 5px;
+  border-radius: 12px;
+  background-color: #008CBA;
+  font-size: 30px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header, .update-form-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dbExampleWrap1 {
+  margin-top: 5rem;
+  padding: 40px;
+  background-color: bisque;
+  max-width:20rem;
+  float:left;
+}
+
+.dbExampleWrap2 {
+  margin-top: 5rem;
+  padding: 40px;
+  background-color: lavender;
+  max-width:20rem;
+  float:left;
+}
+
+.dbExampleWrap3 {
+  margin-top: 5rem;
+  padding: 40px;
+  background-color: lightgreen;
+  max-width:20rem;
+  float:left;
+  min-height: 30rem;
+}
+#FormUpdate {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+#FormUpdate label {
+  margin: 5px 10px 5px;
+  padding-left: 25%;
+  padding-right: 25%;
+  width:100%;
+}
+
+#FormUpdate input[type="file"], #FormUpdate input[type="text"] {
+  margin-left: 5px;
+}
+
+#FormUpdate input[type=submit] {
+  margin: 5px auto 5px auto;
+  width: 30%;
+}
+
+.blue-heading {color: DarkBlue;}
+.questionp {color: DarkSlateGrey;}
+.questionp:hover {background-color: GhostWhite;}
+
+input[type=button] { 
+  background-color: DodgerBlue;
+  text-decoration: none;
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 16px;
+  padding: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  color: MidnightBlue;
+}
+
+input[type=button]:active { 
+  background-color: DeepSkyBlue;
+}
+input[type=button]:hover { 
+  background-color: RoyalBlue;
+}

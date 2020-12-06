@@ -1,0 +1,34 @@
+.fillerWrap{
+    margin-left: 10rem;
+    .bx--text-input-wrapper{
+        width: 20rem;
+        float: none;
+    }
+    
+}
+.fillerForm{
+    margin: 2rem;
+}
+.SDCQuestion{
+    margin:2rem;
+}
+.sectionTitle{
+    font-size: large;
+    font-family: "Lucida Console", Courier, monospace;
+}
+.footer{
+    font-size: 10px;
+    left:0;
+    position: absolute;
+}
+.fillerHead{
+    margin-top: 3rem;
+    left:2rem;
+}
+.radioWrap{
+    display: flex;
+}
+.radioButton{
+    float: left;
+    align-self: initial;
+}
