@@ -30,7 +30,7 @@ export const ProtectedRoute = ({
 	const value = useContext(UserContext);
 	const history = useHistory();
 	let auth = useAuth();
-    const guestLogin = (type: string) => fetch(`http://localhost:5000/api/${type}-guest-login`)
+    const guestLogin = (type: string) => fetch(`/api/${type}-guest-login`)
 	.then((response) => {
 		if (!response.ok) {
 			throw new Error(response.statusText);

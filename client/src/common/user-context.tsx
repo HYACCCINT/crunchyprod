@@ -8,7 +8,7 @@ const UserContext: React.Context<any> = createContext({});
 
 UserContext.displayName = 'UserContext';
 
-const getUser = () => fetch(`http://localhost:5000/api/cur-user`, { credentials : 'include' })
+const getUser = () => fetch(`/api/cur-user`, { credentials : 'include' })
 	.then((response) => {
 		if (!response.ok) {
 			throw new Error(response.statusText);

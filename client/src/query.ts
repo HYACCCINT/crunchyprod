@@ -294,7 +294,7 @@ mutation($id: String, $input: SDCSectionInput) {
 `;
 
 export const urqlClient = createClient({
-	url: `http://localhost:5000/graphql`
+	url: `/graphql`
 });
 
 export const handleUrqlError = (error: CombinedError | undefined) => {
