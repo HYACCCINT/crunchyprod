@@ -51,14 +51,12 @@ app.use(cors_1.default({
 }));
 app.use(cookieParser());
 const path = require('path');
-if (process.env.NODE_ENV === 'production') {
-    // Serve any static files
-    app.use(express_1.default.static(path.join(__dirname, '../../client/build')));
-    // Handle React routing, return all requests to React app
-    app.get('*', function (req, res) {
-        res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
-    });
-}
+// Serve any static files
+app.use(express_1.default.static(path.join(__dirname, '../../client/build')));
+// Handle React routing, return all requests to React app
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
+});
 /**
  * If guest user is logged in, here is where it becomes an object on req.
  */
