@@ -41,7 +41,10 @@ app.use(cors({
 }))
 
 app.use(cookieParser());
+const path = require('path');
 
+const staticFiles = express.static(path.join(__dirname, '../../client/build'))
+app.use(staticFiles)
 
 
 /**

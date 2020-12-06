@@ -31,7 +31,7 @@
     "xml2js": "^0.4.23"
   },
   "scripts": {
-    "start": "nodemon ./src/server.ts",
+    "start": "ts-node ./src/server.ts",
     "build": "tsc",
     "ts-node": "ts-node",
     "test": "ts-node node_modules/jasmine/bin/jasmine --config=spec/support/jasmine.json"

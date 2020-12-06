@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start-client": "cd client && react-scripts start",
+    "start": "cd server && npm start",
     "test": "bash ./test.sh",
-    "build": "npx tsc && cd client && npm run build",
+    "heroku-postbuild": "npm build",
+    "build": "npx tsc && cd client && npm run build && cd ../server && npm run build",
     "iall": "npm i && cd client && npm i && cd .. && cd server && npm i",
     "dev": "concurrently --kill-others-on-fail \"cd server && npm start\" \"cd client && npm start\""
   },
+  "engines": {
+    "node": "12.18.2"
+ },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/csc302-fall-2020/proj-crunchycoders.git"
