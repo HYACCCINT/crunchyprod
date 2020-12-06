@@ -23,18 +23,18 @@ class Database {
 		// 	usage();
 		// }
 
-		// this.cloudant = Cloudant({
-		// 	account: process.env.CLOUDANT_USERNAME,
-		// 	plugins: {
-		// 		iamauth: { // eslint-disable-next-line object-curly-newline
-		// 			iamApiKey: process.env.CLOUDANT_KEY
-		// 		}
-		// 	}
-		// });
+		this.cloudant = Cloudant({
+			account: '85157620-dd07-478b-bc7b-9f7fe1003df9-bluemix',
+			plugins: {
+				iamauth: { // eslint-disable-next-line object-curly-newline
+					iamApiKey: 'vU2S9yy3YH1vqXcV7NdxPHqn-Fudo0DsgBKX4PZGE0HY'
+				}
+			}
+		});
 
 
 		// This would be http://USERNAME:PASSWORD@localhost:5984, modify as needed
-		this.cloudant = Cloudant('http://admin:crunchy@localhost:5984');
+		// this.cloudant = Cloudant('http://admin:crunchy@localhost:5984');
 
 		this.cloudant.db.list().then((body: any) => {
 			// create db if it doesn't exist, otherwise just use it
