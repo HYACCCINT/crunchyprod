@@ -35,7 +35,7 @@ export const ProtectedRoute = ({
 		if (!response.ok) {
 			throw new Error(response.statusText);
         }
-        response.json().then((res:any)=>{ value.setState({status: 'success',
+        response.json().then((res:any)=>{ console.log(res,"dfsdfs"); value.setState({status: 'success',
 		error: null,user:res.user}); history.push(res.url); return res;})
 	});
 	let NoAuthComponent = () => {
@@ -56,21 +56,6 @@ export const ProtectedRoute = ({
 						>
 						Log in to get started
 					</Button></div>
-					<div className="guest">
-      				<p>Or...</p>
-					<Button
-					      id="fillbtn"
-						  kind="secondary"
-						onClick={() => { guestLogin('filler') }}>
-						Log in as Filler guest
-					</Button>
-					<Button
-						id="mngbtn"
-						kind="secondary"
-						onClick={() => { guestLogin('manager') }}>
-						Log in as Manager guest
-					</Button>
-					</div>
 				</div>
 			</div>
 		);

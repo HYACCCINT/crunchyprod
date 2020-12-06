@@ -35,14 +35,13 @@ const pwdProps = { // make sure all required component's inputs/Props keys&types
         setPassword(event.target.value)
     }
 }    
-const guestLogin = (type: string) => fetch(`/api/${type}-guest-login`)
-	.then((response) => {
-		if (!response.ok) {
-			throw new Error(response.statusText);
-        }
-        response.json().then((res:any)=>{ userState.setState({status: 'success',
-		error: null,user:res.user}); history.push(res.url);return res;})
-    });
+const guestLogin = async (type: string) =>{
+  setUsername(type);
+  setPassword('123');
+  await executeQuery();
+  history.push(`/${type}`)
+
+}
 const userLogin = () => {
   executeQuery()
   };
@@ -62,13 +61,13 @@ const userLogin = () => {
       <Button
       id="fillerbtn"
       kind="secondary"
-            onClick={() => { guestLogin('filler') }}>
+            onClick={() => { guestLogin('fill') }}>
             Log in as Filler guest
     </Button>
     <Button
     id="managebtn"
     kind="secondary"
-        onClick={() => { guestLogin('manager') }}>
+        onClick={() => { guestLogin('manage') }}>
         Log in as Manager guest
     </Button>    
       </div>

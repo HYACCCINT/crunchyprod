@@ -1,10 +1,9 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -55,7 +54,7 @@ const path = require('path');
 app.use(express_1.default.static(path.join(__dirname, '../../client/build')));
 // Handle React routing, return all requests to React app
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../../client/build/', 'index.html'));
 });
 /**
  * If guest user is logged in, here is where it becomes an object on req.
@@ -88,17 +87,19 @@ function checkAuthentication(req, res, next) {
         res.status('401').json({ error: 'unauthorized' });
     }
 }
-app.get('/api/filler-guest-login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/api/filler-guest-login', (req, res) => __awaiter(this, void 0, void 0, function* () {
+    console.log(req);
     req.session.user = fillerUser;
     res.json({ user: fillerUser, url: '/fill' });
     req.session.save();
 }));
-app.get('/api/manager-guest-login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/api/manager-guest-login', (req, res) => __awaiter(this, void 0, void 0, function* () {
+    console.log(req);
     req.session.user = managerUser;
     res.json({ user: managerUser, url: '/manage' });
     req.session.save();
 }));
-app.get('/api/user', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/api/user', (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
         const user = yield graphql_1.root.user({ id: req.id, password: req.password }, req);
         res.json(user);
@@ -108,7 +109,7 @@ app.get('/api/user', (req, res) => __awaiter(void 0, void 0, void 0, function* (
         res.status('404').json({ error: 'User not found' });
     }
 }));
-app.get('/api/cur-user', checkAuthentication, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/api/cur-user', checkAuthentication, (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
         res.json(req.session.user);
         req.session.save();
@@ -117,7 +118,7 @@ app.get('/api/cur-user', checkAuthentication, (req, res) => __awaiter(void 0, vo
         res.status('404').json({ error: 'User not found' });
     }
 }));
-app.get('/apitest/form', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/apitest/form', (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
         const form = yield graphql_1.root.form({ id: req.body.id }, req);
         res.json(form);
@@ -126,7 +127,7 @@ app.get('/apitest/form', (req, res) => __awaiter(void 0, void 0, void 0, functio
         res.status('404').json({ error: 'form not found' });
     }
 }));
-app.post('/api/form', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post('/api/form', (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
         const form = yield graphql_1.root.updateForm({ id: req.body.id, input: req.body.input }, req);
         res.json(form);
@@ -135,7 +136,7 @@ app.post('/api/form', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status('404').json({ error: 'form not found' });
     }
 }));
-app.post('/api/upload/form', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post('/api/upload/form', (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
         const form = yield graphql_1.root.uploadForm({ id: req.body.id, input: req.body.input }, req);
         res.json(form);
